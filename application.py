@@ -85,11 +85,8 @@ class Solver:
             with open('mutated_reads.txt', 'r') as file:
                 mutatedReads = file.read().split(',')
 
-        if not self.globalFreq:
-            _, correctedReads, self.globalFreq = correction.correctionFunc(mutatedReads, k, t, 2, False, None)
-        else:
-            _, correctedReads, _ = correction.correctionFunc(mutatedReads, k, t, 2, False, self.globalFreq)
-
+        _, correctedReads= correction.correctionFunc(mutatedReads, k, t, 2, False)
+        
         S_m = 0
         S_k = 0
         for i in range(N):
